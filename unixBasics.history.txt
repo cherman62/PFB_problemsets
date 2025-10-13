@@ -1,0 +1,9 @@
+  316  git add oops2
+  318  ls
+  320  git add oops2
+  321  git commit -m 'oops2'
+  323  rm oops2
+  324  git add oops2
+  327  vi never
+  329  git reset never
+  330  ls
