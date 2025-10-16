@@ -53,3 +53,53 @@ with open("Python_06.fastq.txt","r") as p6fastq:
     print("Total # of lines with DNA sequence:", seqlinecount)
     print("Total # of nucleotides:", totalntcount)
     print("Average line length of the lines that contain sequences:", avglinelengthwithseq)
+
+#Question 5
+ferrpigment = {}
+ferrpigment = set(ferrpigment)
+with open("ferret_pigmentation_genes.tsv","r") as ferretpigmentation:
+    next(ferretpigmentation)
+#next ensures that you skip processing of the first line
+    for line in ferretpigmentation:
+        line = line.rstrip()
+        ferrpigment.add(line)
+    print(ferrpigment)
+
+ferrstemcell = {}
+ferrstemcell = set(ferrstemcell)
+with open("ferret_stemcellproliferation_genes.tsv","r") as ferretstemcell:
+    next(ferretstemcell)
+#next ensures that you skip processing of the first line
+    for line in ferretstemcell:
+        line = line.rstrip()
+        ferrstemcell.add(line)
+    print(ferrstemcell)
+
+ferr_all = {}
+ferr_all = set(ferr_all)
+with open("ferret_all_genes.tsv","r") as ferret_all:
+    next(ferret_all)
+#next ensures that you skip processing of the first line
+    for line in ferret_all:
+        line = line.rstrip()
+        ferr_all.add(line)
+    print(ferr_all)
+
+
+print(ferr_all-ferrstemcell)
+print(ferrstemcell & ferrpigment)
+
+#begin working with transcription factors
+
+ferrtransfac = {}
+ferrtransfac = set(ferrtransfac)
+with open("ferret_transcriptionFactors.tsv","r") as ferrettranscriptionfactors:
+    next(ferrettranscriptionfactors)
+#next ensures that you skip processing of the first line
+    for line in ferrettranscriptionfactors:
+        line = line.rstrip()
+        ferrtransfac.add(line)
+    print(ferrtransfac)
+
+print(ferrstemcell & ferrtransfac)
+
