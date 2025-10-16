@@ -56,7 +56,7 @@ for number2 in range(1,101):
 print(listforloopq9)
 print(list2forloopq9)
 
-#Question 10 (I have this script as a standalone in another file called python4problemsetq10.py
+#Question 10 (I have this script as a standalone in another file called python4problemsetq10.py)
 #!/usr/bin/env python3
 # import sys
 # num1 = sys.argv[1]
@@ -68,7 +68,7 @@ print(list2forloopq9)
 # print("The minimum is:", num1)
 # print("The maximum is:", num2)
 
-#Question 11
+#Question 11 (I have this script as a standalone in another file called python4problemsetq10.py)
 #!/usr/bin/env python3
 # import sys
 # num1 = sys.argv[1]
@@ -78,7 +78,7 @@ print(list2forloopq9)
 # num_in_between = [number for number in range(num1, num2+1)]
 # print(num_in_between)
 
-#Question 12
+#Question 12 (I have this script as a standalone in another file called python4problemsetq10.py)
 # #!/usr/bin/env python3
 # import sys
 # num1 = sys.argv[1]
