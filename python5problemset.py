@@ -95,3 +95,33 @@ with open("Python_06.fasta","r") as python6fasta:
         else:
             fasta_streamlined[seqID] += line
 print(fasta_streamlined)
+
+#Bonus question
+ntcount = {}
+with open ("Python_06.seq.txt") as python6seq:
+    for line in python6seq:
+        line = line.rstrip()
+        lsplit = line.split('\t')
+        DNAset = set(lsplit[1])
+        for nt in lsplit[1]:
+            count = lsplit[1].count(nt)
+            ntcount[nt] = count
+        print(ntcount)
+
+seqdict = {}
+with open ("Python_06.seq.txt") as python6seq:
+    for line in python6seq:
+        line = line.rstrip()
+        lsplit = line.split('\t')
+        DNAlen = len(lsplit[1])
+        seqdict[lsplit[0]] = DNAlen
+        DNA = lsplit[1]
+        Acount = DNA.count('A')
+        Tcount = DNA.count('T')
+        Gcount = DNA.count('G')
+        Ccount = DNA.count('C')
+        Totalcount = Acount+Tcount+Gcount+Ccount
+        GCcount = Gcount+Ccount
+        GCcontent = GCcount/Totalcount*100
+        print(f'{lsplit[0]} is the name of the sequence. The total A count is {Acount}. The total T count is {Tcount}. The total G count is {Gcount}. The total C count is {Ccount}. The GC content is {GCcontent}% ')
+print(seqdict)
