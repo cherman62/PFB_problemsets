@@ -33,8 +33,7 @@ for pair in favs:
 favs[fav_thing4] = 'S. aureus'
 print(favs) 
 
-#Question 10
-#NEED HELP!
+#Question 10  - in a separate file
 
 #SETS PROBLEM SETS
 #Question 1
