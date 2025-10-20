@@ -36,10 +36,37 @@ def print_x_chars_per_line(dna, width):
 
 dna_3 = 'GATGGGATTGGGGTTTTCCCCTCCCATGTGCTCAAGACTGGCGCTAAAAGTTTTGAGCTTCTCAAAAGTCTAGAGCCACCGTCCAGGGAGCAGGTAGCTGCTGGGCTCCGGGGACACTTTGCGTTCGGGCTGGGAGCGTGCTTTCCACGACGGTGACACGCTTCCCTGGATTGGCAGCCAGACTGCCTTCCGGGTCACTGCCATGGAGGAGCCGCAGTCAGATCCTAGCGTCGAGCCCCCTCTGAGTCAGGAAACATTTTCAGACCTATGGAAACTACTTCCTGAAAACAACGTTCTGTCCCCCTTGCCGTCCCAAGCAATGGATGATTTGATGCTGTCCCCGGACGATATTGAACAATGGTTCACTGAAGACCCAGGTCCAGATGAAGCTCCCAGAATGCCAGAGGCTGCTCCCCCCGTGGCCCCTGCACCAGCAGCTCCTACACCGGCGGCCCCTGCACCAGCCCCCTCCTGGCCCCTGTCATCTTCT'
 width = 80
-print(print_x_chars_per_line(dna, width))
+print(print_x_chars_per_line(dna_3, width))
 
 #Question 4
+#!/usr/bin/env python3
+import re
+import sys
 
+def print_x_chars_per_line_in_fasta(file_name, seq_width):
+    with open(file_name, 'r') as py6fasta, open('python10problemsetq4output.txt','w') as p10q4out:
+        py6fasta_dict = {}
+        for line in py6fasta:
+            line = line.rstrip()
+            if line.startswith('>'):
+                geneID = line
+                py6fasta_dict[geneID] = ''
+            else:
+                py6fasta_dict[geneID] += line
+        py6fasta_key = []
+        py6fasta_value = []
+        for i in py6fasta_dict:
+            seq = py6fasta_dict[i]
+            p10q4out.write(i)
+            p10q4out.write('\n')
+            divdna = re.sub(rf'(.{{1,{seq_width}}})',r'\1\n',seq)
+    #keep in mind that 1 is needed in the bracket. Initially I had nothing (ie {{,{width}}}). Because that is implicitly 0, it also includes "nothing" or "new lines" so that's why there was a space between seq and the next seqID.
+            p10q4out.write(divdna)
+    return p10q4out
+
+fasta_name = sys.argv[1]
+length_of_seq = sys.argv[2]
+print(print_x_chars_per_line_in_fasta(fasta_name, length_of_seq))
 
 #Question 5
 def gc_content(dna):
