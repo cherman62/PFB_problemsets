@@ -101,6 +101,63 @@
 #             p8q3out.write('\n')
 
 #Question 4
+# import re
+
+# with open('Python_06.fasta', 'r') as py8fasta:
+#     seqID = []
+#     seq = []
+#     for line in py8fasta:
+#         line = line.rstrip()
+#         if line.startswith('>'):
+#             for i in range(1,4):
+#                 line_app = line+'-frame-'+str(i)+'-codons'
+#                 seqID.append(line_app)
+#             for j in range(1,4):
+#                 line_app_revcomp = line+'-frame-'+str(j)+'-codons-revcomp'
+#                 seqID.append(line_app_revcomp)
+#             DNAseq = ''
+#             seq.append(DNAseq)
+#         else:
+#             seq[-1] += line
+# print(seqID)
+
+# seq_with_codon_space_3frame = []
+# seq_revcomp = []
+# for a in seq:
+#     a = str(a)
+#     a_comp = a.replace('A','t').replace('T','a').replace('C','g').replace('G','c')
+#     a_revcomp = a_comp[::-1]
+#     a_revcomp_uppercase = a_revcomp.upper()
+#     seq_revcomp.append(a_revcomp_uppercase)
+
+# seq_seq_revcomp = []
+
+# for item1,item2 in zip(seq, seq_revcomp):
+#     seq_seq_revcomp.append(item1)
+#     seq_seq_revcomp.append(item2)
+
+# seq_with_codon_space_6frame = []
+# for k in seq_seq_revcomp:
+#     for l in range(3):
+#         seq_space = re.sub(r'(.{3})',r'\1 ',k[l:])
+#         seq_with_codon_space_6frame.append(seq_space)
+
+# print(seq_with_codon_space_6frame)
+
+# zip_seqID_seq_6frame = zip(seqID, seq_with_codon_space_6frame)
+# fasta_with_codon_space_6frame = dict(zip_seqID_seq_6frame)
+# print(fasta_with_codon_space_6frame)
+
+
+# with open('Python_08.codons-6frames.nt.txt', 'w') as p8q4out:
+#     for m in fasta_with_codon_space_6frame:
+#         gene_name = fasta_with_codon_space_6frame[m]
+#         p8q4out.write(m)
+#         p8q4out.write('\n')
+#         p8q4out.write(gene_name)
+#         p8q4out.write('\n')
+
+#Question 5
 import re
 
 with open('Python_06.fasta', 'r') as py8fasta:
@@ -143,18 +200,11 @@ for k in seq_seq_revcomp:
         seq_with_codon_space_6frame.append(seq_space)
 
 print(seq_with_codon_space_6frame)
-print('')
-print('')
-print('')
-print('')
 
 zip_seqID_seq_6frame = zip(seqID, seq_with_codon_space_6frame)
 fasta_with_codon_space_6frame = dict(zip_seqID_seq_6frame)
 print(fasta_with_codon_space_6frame)
-print('')
-print('')
-print('')
-print('')
+
 
 with open('Python_08.codons-6frames.nt.txt', 'w') as p8q4out:
     for m in fasta_with_codon_space_6frame:
