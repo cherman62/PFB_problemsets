@@ -158,6 +158,8 @@
 #         p8q4out.write('\n')
 
 #Question 5
+
+#START WORKING ON 5
 import re
 
 with open('Python_06.fasta', 'r') as py8fasta:
